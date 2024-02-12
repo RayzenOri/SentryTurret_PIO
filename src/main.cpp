@@ -139,7 +139,7 @@ void setup()
   servoY.attach(11);            // SerwoY (gora dol) przypisane do pinu 10
   servoY.write(servoPositionY); // Pozycja serwa ustawiona na 90 (Centrum)
 
-  trackingStartTime = millis(); // zapisz czas startu dla funkcji śledzenia celu ai w trybie auto
+  trackingStartTime = millis(); // zapisz czas startu dla funkcji śledzenia celu w trybie auto
 
   // Utwórz sieć wifi
   WiFi.softAP(ssid, password);
@@ -435,8 +435,6 @@ void aiAutoDetect()
       {
         targetDetected = true;
         targetLost = false;
-        // Serial.println(String()+F("Block:xCenter=")+result.xCenter+F(",yCenter=")+result.yCenter);
-        // Serial.println(String() + F("Block:xCenter=") + result.xCenter + F(",yCenter=") + result.yCenter + F(",width=") + result.width + F(",height=") + result.height + F(",ID=") + result.ID);
         if (result.ID == 1)
         {
           if (result.xCenter < (160 - (result.width / 4) - (precisionX * 5)))
