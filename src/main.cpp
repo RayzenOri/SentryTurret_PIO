@@ -25,11 +25,9 @@ HUSKYLENS huskylens;
 void printResult(HUSKYLENSResult result);
 
 // Ustaw nazwę i hasło sieci wifi
-const char *ssid = "ESP32";
+const char *ssid = "Sentry Turret";
 const char *password = "12345678";
 
-// Ustaw pin diody led
-const int ledPin = 3;
 #define fire 5
 
 // Wartości Wieżyczki
@@ -135,8 +133,6 @@ void setup()
     delay(100);
   }
 
-  // Ustaw pin diody led jako wyjście
-  pinMode(ledPin, OUTPUT);
   pinMode(fire, OUTPUT);
   servoX.attach(10);            // SerwoX (lewo prawo) przypisane do pinu 10
   servoX.write(servoPositionX); // Pozycja serwa ustawiona na 90 (Centrum)
@@ -187,7 +183,7 @@ void setup()
   data += "get_autoMode=" + String(autoMode) + "\n";
 
   request->send(200, "text/plain", data);
-  Serial.println("poszlo"); });
+  Serial.println("Polaczono"); });
 
   // Uruchom serwer
   server.begin();
